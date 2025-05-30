@@ -1,0 +1,56 @@
+name: duha_portfolio
+description: "A beautiful and amazing portfolio application for Duha Abu Shanab."
+publish_to: 'none' # Remove if you plan to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.0.0
+
+  # Utilities
+  path_provider: ^2.1.5
+  shared_preferences: ^2.0.0
+  url_launcher: ^6.0.0
+  share_plus: ^7.0.0
+
+  # UI & Animations
+  google_fonts: ^6.0.0
+  font_awesome_flutter: ^10.1.0
+  carousel_slider: ^4.2.1
+  flutter_staggered_animations: ^1.1.1
+
+  # Cupertino iOS icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/cv/
+    - assets/images/
+    - assets/images/foodtek/
+    - assets/images/helpgood/
+    - assets/images/elegant/
+    # - assets/data/           # Optional: JSON or other data files
+    # - assets/images/profile.jpg  # Placeholder for profile picture
+
+  # To add custom fonts, uncomment and edit the following:
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: fonts/CustomFont-Regular.ttf
+  #       - asset: fonts/CustomFont-Bold.ttf
+  #         weight: 700
