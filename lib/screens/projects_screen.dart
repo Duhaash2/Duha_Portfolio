@@ -80,15 +80,7 @@ class ProjectsScreen extends StatelessWidget {
                                     ),
                               ),
                               const SizedBox(height: AppPadding.p4),
-                              Text(
-                                project.dates,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                      color: textColor.withOpacity(0.7),
-                                    ),
-                              ),
+
                               const SizedBox(height: AppPadding.p12),
                               Text(
                                 project.description,

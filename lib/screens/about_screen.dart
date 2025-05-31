@@ -97,7 +97,7 @@ class _AboutScreenState extends State<AboutScreen> with TickerProviderStateMixin
                 index: 0,
                 title: 'About Me',
                 child: Text(
-                  personalInfo.summary,
+                  personalInfo.aboutMe,
                   style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.justify,
                 ),
@@ -120,36 +120,37 @@ class _AboutScreenState extends State<AboutScreen> with TickerProviderStateMixin
                 ),
               ),
               const SizedBox(height: AppPadding.p16),
-
-              _buildAnimatedSection(
-                context,
-                index: 2,
-                title: 'Languages',
-                child: Column(
-                  children: languages.map((lang) {
-                    return ListTile(
-                      title: Text(lang.name),
-                      trailing: Text(lang.proficiency),
-                    );
-                  }).toList(),
-                ),
-              ),
               const SizedBox(height: AppPadding.p16),
-
-              _buildAnimatedSection(
-                context,
-                index: 3,
-                title: 'Courses',
-                child: Column(
-                  children: courses.map((course) {
-                    return ListTile(
-                      leading: const Icon(Icons.book),
-                      title: Text(course.name),
-                      subtitle: Text(course.platform),
-                    );
-                  }).toList(),
-                ),
-              ),
+              //
+              // _buildAnimatedSection(
+              //   context,
+              //   index: 2,
+              //   title: 'Languages',
+              //   child: Column(
+              //     children: languages.map((lang) {
+              //       return ListTile(
+              //         title: Text(lang.name),
+              //         trailing: Text(lang.proficiency),
+              //       );
+              //     }).toList(),
+              //   ),
+              // ),
+              // const SizedBox(height: AppPadding.p16),
+              //
+              // _buildAnimatedSection(
+              //   context,
+              //   index: 3,
+              //   title: 'Courses',
+              //   child: Column(
+              //     children: courses.map((course) {
+              //       return ListTile(
+              //         leading: const Icon(Icons.book),
+              //         title: Text(course.name),
+              //         subtitle: Text(course.platform),
+              //       );
+              //     }).toList(),
+              //   ),
+              // ),
               const SizedBox(height: AppPadding.p24),
             ],
           ),

@@ -17,10 +17,10 @@ class AppColors {
   static const Color secondaryBlueDark = Color(0xFF036D97);
 
   // Green Theme Colors (Vibrant)
-  static const Color primaryGreenLight = Color(0xFF34C759); // Vibrant Green
+  static const Color primaryGreenLight = Color(0xFF4F7757); // Vibrant Green
   static const Color secondaryGreenLight = Color(0xFF3A8C4C);
   static const Color primaryGreenDark = Color(0xFF1C812F);
-  static const Color secondaryGreenDark = Color(0xFF7FD697);
+  static const Color secondaryGreenDark = Color(0xFF2BAC4C);
 
   // Purple Theme Colors (Deep)
   static const Color primaryPurpleLight = Color(0xFF5856D6); // Deep Purple

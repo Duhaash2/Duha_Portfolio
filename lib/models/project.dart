@@ -1,13 +1,13 @@
 class Project {
   final String name;
   final String description;
-  final String dates;
+  final String? dates;
   final List<String> imagePaths; // List of asset paths for project images
 
   Project({
     required this.name,
     required this.description,
-    required this.dates,
+     this.dates,
     this.imagePaths = const [],
   });
 
@@ -45,7 +45,7 @@ class Project {
     Project(
       name: "HelpGood",
       description: "Marketplace platform connecting handmade product creators with buyers. Implemented secure checkout and real-time messaging. Added product categories, search ﬁlters, and custom proﬁle options",
-      dates: "09/2023 - 01/2024",
+
       imagePaths: [
         "assets/images/helpgood/img.png",
         "assets/images/helpgood/img_1.png",

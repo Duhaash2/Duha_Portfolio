@@ -2,6 +2,7 @@ class PersonalInfo {
   final String name;
   final String title;
   final String summary;
+  final String aboutMe;
   final String email;
   final String phone;
   final String location;
@@ -13,6 +14,7 @@ class PersonalInfo {
     required this.name,
     required this.title,
     required this.summary,
+    required this.aboutMe,
     required this.email,
     required this.phone,
     required this.location,
@@ -25,13 +27,17 @@ class PersonalInfo {
   static PersonalInfo get sample => PersonalInfo(
     name: "Duha Abu Shanab",
     title: " Mobile Application Developer",
-    summary: "Passionate Flutter developer focused on crafting intuitive and scalable mobile experiences. With hands-on experience in Dart, Firebase, and clean architecture principles, I excel at transforming complex requirements into functional, responsive applications. I thrive on continuous learning and am dedicated to building user-centric solutions with real-time capabilities and elegant UI/UX.",
+    summary: "Motivated Flutter Developer with hands-on experience designing and building scalable cross-platform mobile applications. Proficient in Dart, Firebase, and RESTful API integration with a strong grasp of clean architecture and responsive UI/UX implementation. Demonstrated ability to deliver real-time features in fast-paced, agile environments through internships and capstone projects. Eager to contribute innovative, user-focused solutions and continuously expand technical expertise.",
     email: "duha.abu.shanab.234@gmail.com",
     phone: "(+962) 795498085",
     location: "Amman, Jordan",
     linkedinUrl: "https://linkedin.com/in/duha-abu-shanab", // Ensure full URL
     githubUrl: "https://github.com/Duhaash2", // Ensure full URL
-   profileImageUrl: "assets/images/duha-ph.jpg", // Example path
+   profileImageUrl: "assets/images/duha-ph.jpg",
+    aboutMe: "I'm Duha Abu Shanab, a passionate Mobile Developer based in Amman, Jordan. I specialize in building high-quality Flutter applications that transform creative UI/UX designs into fully functional, real-time mobile experiences. With internships at AppTrainers, JCS, and Cellula Technology, I've gained practical exposure to Firebase integration, chat apps, data visualization, and responsive dashboard design. I hold a degree in Business Information Technology from the Hashemite University and thrive in collaborative, agile-driven teams. I'm always eager to learn, improve, and develop apps that make a positive difference in users' lives.  ",
+
+
+    // Example path
   );
 }
 

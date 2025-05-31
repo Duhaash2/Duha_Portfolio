@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'constants.dart'; // Import constants
+import 'constants.dart'; // Import your constants (colors, padding, etc.)
 
 // Enum to represent the available themes
 enum AppTheme {
@@ -13,7 +13,7 @@ enum AppTheme {
 }
 
 class AppThemes {
-  // Helper to get ThemeData based on enum
+  // Return ThemeData based on selected AppTheme
   static ThemeData getThemeData(AppTheme theme) {
     switch (theme) {
       case AppTheme.blue:
@@ -73,7 +73,7 @@ class AppThemes {
     }
   }
 
-  // Base theme builder
+  // Base method to build all themes
   static ThemeData _buildTheme({
     required Brightness brightness,
     required Color primary,
@@ -83,11 +83,6 @@ class AppThemes {
     required Gradient gradient,
   }) {
     final bool isDark = brightness == Brightness.dark;
-    final Color onPrimary = isDark ? Colors.black : Colors.white;
-    final Color onSecondary = isDark ? Colors.white : Colors.black;
-    final Color onBackground = isDark ? Colors.white70 : Colors.black87;
-    final Color onSurface = isDark ? Colors.white70 : Colors.black87;
-    final Color cardColor = surface;
 
     final baseTheme = ThemeData(brightness: brightness);
 
@@ -97,35 +92,42 @@ class AppThemes {
       colorScheme: ColorScheme(
         brightness: brightness,
         primary: primary,
-        onPrimary: onPrimary,
+        onPrimary: isDark ? Colors.black : Colors.white,
         secondary: secondary,
-        onSecondary: onSecondary,
+        onSecondary: isDark ? Colors.white : Colors.black,
         error: AppColors.errorColor,
         onError: Colors.white,
         background: background,
-        onBackground: onBackground,
+        onBackground: isDark ? Colors.white70 : Colors.black87,
         surface: surface,
-        onSurface: onSurface,
+        onSurface: isDark ? Colors.white70 : Colors.black87,
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: isDark ? surface : primary, // Dark themes use surface color for AppBar
+        backgroundColor: isDark ? surface : primary,
         elevation: 0,
-        iconTheme: IconThemeData(color: isDark ? Colors.white : onPrimary),
+        iconTheme: IconThemeData(
+          color: isDark ? Colors.white : Colors.white,
+        ),
         titleTextStyle: GoogleFonts.lato(
-          color: isDark ? Colors.white : onPrimary,
+          color: isDark ? Colors.white : Colors.white,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
-      textTheme: GoogleFonts.latoTextTheme(
-        baseTheme.textTheme,
-      ).apply(bodyColor: onSurface, displayColor: onSurface),
+      textTheme: GoogleFonts.latoTextTheme(baseTheme.textTheme).apply(
+        bodyColor: isDark ? Colors.white70 : Colors.black87,
+        displayColor: isDark ? Colors.white70 : Colors.black87,
+      ),
       cardTheme: CardTheme(
         elevation: isDark ? 4 : 2,
-        margin: const EdgeInsets.symmetric(vertical: AppPadding.p8, horizontal: AppPadding.p16),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppRadius.r12)),
-        color: cardColor, // Use surface color for cards
-        // Add gradient decoration via custom Card widget if needed, direct theme support is limited
+        margin: const EdgeInsets.symmetric(
+          vertical: AppPadding.p8,
+          horizontal: AppPadding.p16,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r12),
+        ),
+        color: surface,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: primary,
@@ -135,19 +137,21 @@ class AppThemes {
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: primary,
-        foregroundColor: onPrimary,
+        foregroundColor: isDark ? Colors.black : Colors.white,
       ),
       chipTheme: ChipThemeData(
         backgroundColor: secondary.withOpacity(0.1),
         disabledColor: Colors.grey.withOpacity(0.5),
         selectedColor: primary,
         secondarySelectedColor: primary,
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p12, vertical: AppPadding.p8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppPadding.p12,
+          vertical: AppPadding.p8,
+        ),
         labelStyle: TextStyle(color: secondary),
-        secondaryLabelStyle: TextStyle(color: onPrimary),
+        secondaryLabelStyle: TextStyle(color: isDark ? Colors.white : Colors.black),
         brightness: brightness,
       ),
-      // Store gradient in extensions for easy access in widgets
       extensions: <ThemeExtension<dynamic>>[
         AppThemeGradients(cardGradient: gradient),
       ],
@@ -155,7 +159,7 @@ class AppThemes {
   }
 }
 
-// Theme extension to hold gradients
+// Theme extension to access gradient in themed widgets
 @immutable
 class AppThemeGradients extends ThemeExtension<AppThemeGradients> {
   const AppThemeGradients({
@@ -173,12 +177,9 @@ class AppThemeGradients extends ThemeExtension<AppThemeGradients> {
 
   @override
   AppThemeGradients lerp(ThemeExtension<AppThemeGradients>? other, double t) {
-    if (other is! AppThemeGradients) {
-      return this;
-    }
+    if (other is! AppThemeGradients) return this;
     return AppThemeGradients(
       cardGradient: Gradient.lerp(cardGradient, other.cardGradient, t)!,
     );
   }
 }
-

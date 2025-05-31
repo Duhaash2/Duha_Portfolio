@@ -21,8 +21,8 @@ class Skill {
     Skill(name: "python"), // Python
     Skill(name: "general network"), // General Networking
     // Add skills from Python internship if relevant to portfolio
-    Skill(name: "Matplotlib"),
-    Skill(name: "Seaborn"),
+    // Skill(name: "Matplotlib"),
+    // Skill(name: "Seaborn"),
   ];
 }
 
